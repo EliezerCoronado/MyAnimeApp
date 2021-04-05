@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+    background: linear-gradient(to bottom,  rgba(5,4,23,1) 44%, rgba(3,3,60,1) 83%, rgba(5,74,88,1) 100%) fixed;
+    background-size: cover;
+    font: 14px/20px "Lato", Arial, sans-serif;
+    color: #9E9E9E;
+}
+
+.paginas {
+    margin-top: 100px;
+    margin-left: 200px;
+    margin-right: 50px;
+}
