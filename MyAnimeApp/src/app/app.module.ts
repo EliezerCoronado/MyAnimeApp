@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { CardComponent } from './page/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NewcardComponent } from './page/newcard/newcard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CardComponent
+    CardComponent,
+    NewcardComponent
   ],
   imports: [
     BrowserModule,

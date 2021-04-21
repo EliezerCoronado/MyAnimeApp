@@ -16,4 +16,12 @@ export class CardServiceService {
 
   }
 
+
+  getFileSeason(){
+    const url = URL + '/list/file_season';
+    console.log(url);
+    return this.http.get(url);
+
+  }
+
 }

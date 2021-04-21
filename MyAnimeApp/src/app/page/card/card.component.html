@@ -1,17 +1,22 @@
 <div class="paginas">
 
         <div class="giftcard">
-            <div *ngFor="let card of cards" class="box">
+            <div *ngFor="let card of file_season" class="box">
+                <div class="titulo">
+                    <h5>{{card.name}}</h5>
+                </div>
             
                 <div class="content">
-                    
                     <figure>
-                        <img src="{{card}}" alt="">
+                        <img src="{{card.cover_page}}" alt="">
                     </figure>
+                    
+                    
 
                 </div>
                 
             </div>
+
     
 </div>
 

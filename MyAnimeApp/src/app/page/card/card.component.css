@@ -15,22 +15,26 @@
     position:relative;
     
     width: 300px;
-    height: 400px;
-    display: flex;
-    justify-content:right;
+    height: 460px;
+    display:grid;
+    justify-content:center;
     align-items: center;
-    background:white;
+    background:rgb(246,250,242);
     margin: 10px;
     border-radius: 10px;
 }
 
 
 
-
+.box .titulo h5{
+    margin-top: 10px;
+    margin-left: 15px;
+    color: black;
+}
 
 .box .content img { 
     margin-left: 10px;
-    margin-top: 15px;   
+    margin-top: 0px;   
     width: 280px;
     height: 380px;
     border-radius: 10px;
