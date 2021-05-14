@@ -1,14 +1,15 @@
 <div class="paginas">
 
-        <div class="giftcard">
-            <div *ngFor="let card of file_season" class="box">
-                <div class="titulo">
+        <div class="moviecard">
+            <div *ngFor="let card of file_season" class="box" (click)="singleCard(card)">
+               
+                <div class="titulo" n>
                     <h5>{{card.name}}</h5>
                 </div>
             
                 <div class="content">
                     <figure>
-                        <img src="{{card.cover_page}}" alt="">
+                        <img src="{{card.cover_page}}" alt="movie"   > 
                     </figure>
                     
                     

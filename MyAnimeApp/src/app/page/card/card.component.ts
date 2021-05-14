@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CardServiceService } from 'src/app/service/card-service.service';
 
 @Component({
@@ -8,18 +9,11 @@ import { CardServiceService } from 'src/app/service/card-service.service';
 })
 export class CardComponent implements OnInit {
 
-  constructor(private service:CardServiceService ) { }
+  constructor(private service:CardServiceService,
+              private route: Router
+     ) { }
 
-  cards=['../../../assets/img/Pelicula/IronMan/IronMan1/Iron_Man_1_Portada.png',
-         '../../../assets/img/2.jpg' ,
-         '../../../assets/img/3.jpg',
-         '../../../assets/img/4.jpg',
-         '../../../assets/img/2.jpg' ,
-         '../../../assets/img/3.jpg',
-         '../../../assets/img/4.jpg',
-         '../../../assets/img/2.jpg' ,
-         '../../../assets/img/3.jpg',
-         '../../../assets/img/4.jpg'];
+  cards=[];
 
   file_season:any = []
   
@@ -33,6 +27,12 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.category();
+  }
+
+  singleCard(card:any){
+  
+    console.log(card);
+    this.route.navigate(['/movie',card.file_id_file]);
   }
 
 }

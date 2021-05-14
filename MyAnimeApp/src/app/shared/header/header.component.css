@@ -5,6 +5,10 @@ nav {
     line-height: 80px;
 }
 
+.logo{
+    cursor: pointer;
+}
+
 nav a {
     color: white;
     margin-left: 0px;

@@ -7,13 +7,15 @@ import { HeaderComponent } from './shared/header/header.component';
 import { CardComponent } from './page/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NewcardComponent } from './page/newcard/newcard.component';
+import { SingleCardComponent } from './page/single-card/single-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CardComponent,
-    NewcardComponent
+    NewcardComponent,
+    SingleCardComponent
   ],
   imports: [
     BrowserModule,

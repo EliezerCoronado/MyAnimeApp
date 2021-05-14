@@ -8,7 +8,7 @@ router.get('/', function (req, res, next) {
 });
 
 
-router.get('/list/category', function ( req,res, next) {
+router.get('/list/movies', function ( req,res, next) {
 
   const query = "select * from category"
     conn.query(query, (err, rows, fileds) => {

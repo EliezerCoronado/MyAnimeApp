@@ -2,30 +2,61 @@
   <div class="row justify-content-md-center">
       <div class="col-md-8">
 
-
+        <!--file-->
         <form>
           
           <div class="form-group">
             <h5 for="inputsm">Name File</h5>
-            <input class="form-control input-sm" id="inputsm" type="text">
+            <input class="form-control input-sm" id="name" formControlName="name" type="text" required>
           </div>
 
            <div class="form-group">
-            <label for="inputdefault">Default input</label>
-            <select id ='restaurant' formControlName='restaurant' name='restaurant' class="form-control" required>
-            
-              <option>categorias</option>
-              <option *ngFor="let item of category"> {{ item.id_category }}-{{ item.name_category }}</option>
+            <h5 for="inputdefault">Category</h5>
+            <select id ='category' formControlName='category' name='category' class="form-control" required>
+              <option *ngFor="let item of Category"> {{ item.id_category }}-{{ item.name_category }}</option>
             </select>
           </div>
-          <div class="form-group">
-            <label for="inputlg">Large input</label>
-            <input class="form-control input-lg" id="inputlg" type="text">
-          </div>
+
         </form>
 
+        <!--file-season-->
+        <form>
+          
+          <div class="form-group">
+            <h5 for="inputdefault">Season</h5>
+            <select id ='season' formControlName='season' name='season' class="form-control" required>
+              <option *ngFor="let item of Season"> {{ item.id_season }}-{{ item.name_season }}</option>
+            </select>
+          </div>
+          
         
+          <div class="form-group">
+            <h5 for="inputsm">Original Name</h5>
+            <input class="form-control input-sm" id="original" formControlName="original" type="text" required>
+          </div>
 
+          <div class="form-group">
+            <h5 for="exampleFormControlTextarea2">Description</h5>
+            <textarea class="form-control rounded-0" name="description" id="description" rows="3"></textarea>
+          </div>
+
+          <div class="form-group">
+            <h5>Release Date</h5>
+            <input formControlName="release_date" name="release_date" type="date" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <h5 for="exampleFormControlTextarea2">Path</h5>
+            <input class="form-control input-sm" id="path" formControlName="path" type="text" required>
+          </div>
+
+          <div class="form-group">
+            <h5 for="exampleFormControlTextarea2">Cover Page</h5>
+            <input class="form-control input-sm" id="cover_page" formControlName="cover_page" type="text" required>
+          </div>
+
+
+        </form>
 
 
       </div>

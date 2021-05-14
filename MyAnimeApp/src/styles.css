@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background: linear-gradient(to bottom,  rgba(5,4,23,1) 44%, rgba(3,3,60,1) 83%, rgba(5,74,88,1) 100%) fixed;
     background-size: cover;

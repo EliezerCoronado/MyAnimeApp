@@ -10,13 +10,23 @@ export class NewcardComponent implements OnInit {
 
   constructor(private server:CardServiceService) { }
   
-  category:any=[];
+  Category:any=[];
+  Season:any= [];
 
   ngOnInit(): void {
     this.server.getCategory().subscribe((data:any)=>{
-      this.category=data.data
-      console.log(this.category);
+      this.Category = data.data
+      console.log(this.Category);
     });
+
+    this.server.getSeason().subscribe((data:any)=>{
+      this.Season = data.data;
+      console.log(this.Season);
+    })
+
   }
+
+
+  
 
 }

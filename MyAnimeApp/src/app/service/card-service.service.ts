@@ -11,7 +11,6 @@ export class CardServiceService {
 
   getCategory(){
     const url = URL + '/list/category';
-    console.log(url);
     return this.http.get(url);
 
   }
@@ -19,9 +18,15 @@ export class CardServiceService {
 
   getFileSeason(){
     const url = URL + '/list/file_season';
-    console.log(url);
     return this.http.get(url);
 
   }
+
+
+  getSeason(){
+    const url = URL + '/list/season';
+    return this.http.get(url);
+  }
+
 
 }
