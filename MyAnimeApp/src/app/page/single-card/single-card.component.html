@@ -1,3 +1,55 @@
 <div class="paginas">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam reprehenderit laboriosam illo, optio animi neque perferendis, minus et odit vero nam architecto accusantium commodi nesciunt debitis aspernatur perspiciatis cum saepe!</p>
+    <div class="movieSingle">
+        <h1>{{movie.name}} 
+            <button type="button" class="btn btn-outline-success">
+                <em class="fas fa-shopping-cart"></em> Agregar</button></h1>
+
+        <div class="horizontal">
+            
+            <figure>
+                <img src="{{movie.cover_page}}" alt="">
+            </figure>
+            <div class="vertical">
+                <h5>Titulo Original: <b>{{movie.name}}</b></h5>
+                <h5>Otro titulo: <b>El hombre de acero</b></h5>
+                <h5>Fecha de estreno: {{movie.release_date | date:'longDate'}}</h5>
+                <div class="audio">
+                    <h5>Idioma:</h5>
+                    <div class="lat"><b><h5>Latino</h5></b> </div>
+                    <div class="lat"><b><h5>Ingles</h5></b> </div>
+                    <div class="lat"><b><h5>Tailandes</h5></b> </div>
+                    <div class="lat"><b><h5>Japones</h5></b></div>
+                </div>
+                <h5>Subtitulado: {{movie.release_date | date:'longDate'}}</h5>
+                <h5>Categoria: Accion, Ciencia Ficcion, Terror</h5>
+                <h5>Calidad: 1080 HD</h5>
+                <h5>Formato: MKV</h5>
+                <h5>Duracion: 180 minutos</h5>
+                <h5>Tamaño: <b>2.62 Gigas</b></h5>
+                <div class="horizontal">
+                    <h5>Precio: </h5> 
+                    <h5 style="color: green; margin-left:2px; font-weight: bold;">Q2</h5>
+                </div>
+
+                <h5><b>Sinopsis</b></h5>
+                <div class="centrado">
+                    <h5>{{movie.description}}</h5>
+                </div>
+             
+                
+            </div>
+    
+        </div>
+
+        <div class="trailer" >
+            <h1>Trailer</h1>
+            <iframe width="700" height="415" src="https://www.youtube.com/embed/8ugaeA-nMTc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <h1>Capturas</h1>
+            <figure>
+                <img src="../../../assets/img/khe.png" alt="">
+            </figure>
+        </div>
+
+    </div>
+
 </div>

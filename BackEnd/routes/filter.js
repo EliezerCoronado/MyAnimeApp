@@ -44,4 +44,27 @@ router.get('/list/season', function ( req,res, next) {
 });
 
 
+router.get('/get-movie/:id_movie', function (req, res, next) {
+  var {
+    id_movie,
+  } = req.params;
+  const query = `Select * from file_season,season where file_id_file = ${id_movie} and
+  id_season=season_id_season `
+    conn.query(query, (err, rows, fileds) => {
+      
+      if(err){
+        res.status(500).json({ message: "Hubo un error que no pudo controlarse"});
+      }
+
+      if(rows.length==0){
+        res.status(404).json({ message: "Producto no encontrado"});
+      }
+
+
+      res.status(200).json({data: rows[0]})
+    })
+});
+
+
+
 module.exports = router;
