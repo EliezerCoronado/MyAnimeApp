@@ -13,6 +13,23 @@
    
 }
 
+.filter{
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+    margin-left: 40px;
+    
+}
+
+.filter h5{
+    background:white;
+    color: black;
+    cursor: pointer;
+    border-radius: 10px;
+    
+}
+
+
 .box {
     position:relative;
     

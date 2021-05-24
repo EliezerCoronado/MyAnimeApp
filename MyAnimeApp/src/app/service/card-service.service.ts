@@ -29,7 +29,7 @@ export class CardServiceService {
   }
 
   getIndividualMovie(id_movie:string){
-    const url = URLFILTER + '/get-movie/'+id_movie;
+    const url = URLFILTER + '/movie/'+id_movie;
     
     return this.http.get(url);
 

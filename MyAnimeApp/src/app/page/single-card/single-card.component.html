@@ -15,20 +15,18 @@
                 <h5>Fecha de estreno: {{movie.release_date | date:'longDate'}}</h5>
                 <div class="audio">
                     <h5>Idioma:</h5>
-                    <div class="lat"><b><h5>Latino</h5></b> </div>
-                    <div class="lat"><b><h5>Ingles</h5></b> </div>
-                    <div class="lat"><b><h5>Tailandes</h5></b> </div>
-                    <div class="lat"><b><h5>Japones</h5></b></div>
+                    <div *ngFor="let language of movie.languages; let i = index;" class="lat" ><b><h5>{{ language.language }}</h5></b> </div>
                 </div>
-                <h5>Subtitulado: {{movie.release_date | date:'longDate'}}</h5>
-                <h5>Categoria: Accion, Ciencia Ficcion, Terror</h5>
-                <h5>Calidad: 1080 HD</h5>
-                <h5>Formato: MKV</h5>
-                <h5>Duracion: 180 minutos</h5>
-                <h5>Tamaño: <b>2.62 Gigas</b></h5>
+                <h5>Subtitulado: {{subtitles || 'Sin Subtitulos'}}
+                </h5>
+                <h5>Categoria: {{categories}}</h5>
+                <h5>Calidad: {{movie.quality}}</h5>
+                <h5>Formato: {{movie.format}}</h5>
+                <h5>Duracion: {{movie.inf[0].duration}} minutos</h5>
+                <h5>Tamaño: <b>{{movie.inf[0].size/1000|number : '1.2-2'}} GB</b></h5>
                 <div class="horizontal">
                     <h5>Precio: </h5> 
-                    <h5 style="color: green; margin-left:2px; font-weight: bold;">Q2</h5>
+                    <h5 style="color: green; margin-left:2px; font-weight: bold;">Q{{movie.price}}</h5>
                 </div>
 
                 <h5><b>Sinopsis</b></h5>
@@ -43,7 +41,7 @@
 
         <div class="trailer" >
             <h1>Trailer</h1>
-            <iframe width="700" height="415" src="https://www.youtube.com/embed/8ugaeA-nMTc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="700" height="415" [src]='getUrl()' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <h1>Capturas</h1>
             <figure>
                 <img src="../../../assets/img/khe.png" alt="">

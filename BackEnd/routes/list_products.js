@@ -22,7 +22,7 @@ router.get('/list/category', function ( req,res, next) {
 
 router.get('/list/file_season', function ( req,res, next) {
 
-  const query = "select * from file_season"
+  const query = "select * from file_season ORDER BY file_id_file DESC limit 16;"
     conn.query(query, (err, rows, fileds) => {
       if(err){
         res.status(500).json({ message: "Hubo un error que no pudo controlarse"});

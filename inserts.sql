@@ -53,11 +53,13 @@ Insert into category (name_category) values ('Yuri');
 
 Insert into type (name_type) values ('Pelicula');
 Insert into type (name_type) values ('Serie');
+Insert into type (name_type) values ('Dorama');
 Insert into type (name_type) values ('Anime');
 Insert into type (name_type) values ('Musica');
 Insert into type (name_type) values ('Video Musical');
 
 Insert into season (name_season) values ('Pelicula');
+Insert into season (name_season) values ('OVA');
 Insert into season (name_season) values ('Temporada 1');
 Insert into season (name_season) values ('Temporada 2');
 Insert into season (name_season) values ('Temporada 3');
@@ -119,17 +121,115 @@ where file_id_file = 11;
 
 
 
-insert into file_season(file_id_file, season_id_season,name,description,release_date,path,cover_page)
+select * from file_season;
+insert into file_season(file_id_file, season_id_season,name,description,release_date,path,cover_page,price,format,quality,trailer)
 values(1,1,"Iron Man","El millonario creador de armas Tony Stark debe luchar a su oscuro pasado después de padecer un terrible accidente con una de sus propias armas. Provisto con una armadura de última generación tecnológica, se convierte en «El hombre de hierro», un héroe que se dedica a combatir el mal en todo el mundo.",
 "2008-04-14","Peliculas/Marvel/Iron Man/Iron Man 1",
-"../../../assets/img/Pelicula/IronMan/IronMan1/Iron_Man_1_Portada.png");
+"../../../assets/img/Pelicula/IronMan/IronMan1/Iron_Man_1_Portada.png",2,"mkv","1080p",
+"https://www.youtube.com/embed/8ugaeA-nMTc");
 
 
-insert into file_season(file_id_file, season_id_season,name,description,release_date,path,cover_page)
+insert into file_season(file_id_file, season_id_season,name,description,release_date,path,cover_page,price,format,quality,trailer)
 values(2,1,"Iron Man 2",
 "El mundo ya sabe que el multimillonario Tony Stark es Iron Man, el superhéroe enmascarado. A pesar de las presiones del gobierno, la prensa y la opinión pública para que comparta su tecnología con el ejército, Tony es reacio a desvelar los secretos de la armadura de Iron Man, porque teme que esa información caiga en en manos de irresponsables. Con Pepper Potts y James Rhodey Rhodes a su lado, Tony forja alianzas nuevas y se enfrenta a nuevas y poderosas fuerzas.",
 "2010-04-26","Peliculas/Marvel/Iron Man/Iron Man 2",
-"../../../assets/img/Pelicula/IronMan/IronMan2/Iron_Man_2_Portada.jpg");
+"../../../assets/img/Pelicula/IronMan/IronMan2/Iron_Man_2_Portada.jpg",2,"mkv","1080p",
+"https://www.youtube.com/embed/wKtcmiifycU");
+
+
+select * from fisical_file;
+
+select * from language;
+
+select * from subtitle;
+
+
+Insert into language(language)  value("Español");
+
+Insert into language(language)  value("Ingles");
+
+Insert into language(language)  value("Japones");
+
+Insert into language(language)  value("Tailandes");
+
+
+Insert into subtitle(subtitle)  value("Español");
+
+Insert into subtitle(subtitle)  value("Ingles");
+
+Insert into file_season_language(file_season_file_id_file,file_season_season_id_season,language_id_language)
+value (1,1,1);
+
+Insert into file_season_language(file_season_file_id_file,file_season_season_id_season,language_id_language)
+value (1,1,2);
+
+
+Insert into file_season_language(file_season_file_id_file,file_season_season_id_season,language_id_language)
+value (2,1,1);
+
+Insert into file_season_language(file_season_file_id_file,file_season_season_id_season,language_id_language)
+value (2,1,2);
+
+Insert into file_season_language(file_season_file_id_file,file_season_season_id_season,language_id_language)
+value (2,1,3);
+
+select * from file_season;
+
+
+
+Insert into file_season_subtitle(file_season_file_id_file,file_season_season_id_season,subtitle_id_subtitle)
+value (1,1,1);
+
+Insert into file_season_subtitle(file_season_file_id_file,file_season_season_id_season,subtitle_id_subtitle)
+value (1,1,2);
+
+select * from category;
+
+
+
+select c.name_category from category_file r, category c, file f 
+where category_id_category=id_category
+and f.id_file=1;
+
+
+
+insert into category_file(category_id_category,file_id_serie)
+Value(2,1);
+
+insert into category_file(category_id_category,file_id_serie)
+Value(8,1);
+
+select * from file_season_language  fsl, language l
+where l.id_language = fsl.language_id_language
+and fsl.file_season_file_id_file = 2;
+
+
+
+
+select * from file_season_subtitle  fsl, subtitle l
+where l.id_subtitle = fsl.subtitle_id_subtitle
+and fsl.file_season_file_id_file = 1;
+
+select l.subtitle from file_season_subtitle  fsl, subtitle l
+                   where l.id_subtitle = fsl.subtitle_id_subtitle
+                   and fsl.file_season_file_id_file = 1;
+
+
+
+select * from fisical_file where file_season_file_id_file = 1;
+
+select Round( avg(size_fisical_file),0) from fisical_file where file_season_file_id_file = 1;
+
+
+
+
+
+insert into fisical_file(name_fisical_file,size_fisical_file,duration,file_season_file_id_file,file_season_season_id_season)
+value("Iron Man cap 2.mkv",900, "180 minutos",1,1);
+
+
+insert into fisical_file(name_fisical_file,size_fisical_file,duration,file_season_file_id_file,file_season_season_id_season)
+value("Iron Man cap 3.mkv",1253, "180 minutos",1,1);
 
 insert into file_season(file_id_file, season_id_season,name,description,release_date,path,cover_page)
 values(3,1,"Iron Man 3",
@@ -229,6 +329,11 @@ values(17,1,"Avengers: EndGame",
 "2019-04-22","Peliculas/Marvel/Avengers/Avengers 4",
 "../../../assets/img/Pelicula/Avengers/Avengers4/Avengers_4_Portada.jpeg");
 
+insert into file_season(file_id_file, season_id_season,name,description,release_date,path,cover_page)
+values(18,1,"Captain Marvel",
+"La historia sigue a Carol Danvers (Interpretada por Brie Larson) mientras se convierte en uno de los héroes más poderosos del universo, cuando la Tierra se encuentra atrapada en medio de una guerra galáctica entre dos razas alienígenas. Situada en los años 90, ‘Capitana Marvel‘ es una historia nueva de un período de tiempo nunca antes visto en la historia del Universo Cinematográfico de Marvel.",
+"2019-02-27","Peliculas/Marvel/Capitana Marvel/Capitana Maverl 1",
+"../../../assets/img/Pelicula/CapitanaMarvel/CapitanaMarvel1/CapitanaMarvel1_Portada.jpg");
 
 
 
@@ -236,8 +341,17 @@ values(17,1,"Avengers: EndGame",
 select * FROM file_season ORDER BY file_id_file DESC LIMIT 16;
 
 
-SELECT * FROM file_season where release_date BETWEEN '2011-01-01' AND '2011-12-31'
+
+
+SELECT * FROM file_season where release_date BETWEEN '2011-01-01' AND '2011-12-31';
 
 Select * from file_season, file, type 
 where file_id_file=id_file
-and type_id_type=id_type;
+and type_id_type=id_type
+and name_type ='Pelicula';
+
+
+
+use MyAnime;
+
+select * from season
