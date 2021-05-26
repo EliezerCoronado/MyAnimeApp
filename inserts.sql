@@ -189,7 +189,7 @@ select * from category;
 
 select c.name_category from category_file r, category c, file f 
 where category_id_category=id_category
-and f.id_file=1;
+and f.id_file=2;
 
 
 
@@ -216,20 +216,40 @@ select l.subtitle from file_season_subtitle  fsl, subtitle l
 
 
 
-select * from fisical_file where file_season_file_id_file = 1;
+select size_fisical_file,duration from fisical_file where file_season_file_id_file = 1;
 
-select Round( avg(size_fisical_file),0) from fisical_file where file_season_file_id_file = 1;
 
+select Round( avg(size_fisical_file),0) as size,Round(avg(duration),0) as duration from fisical_file where file_season_file_id_file = 1;
+
+
+
+select Round(avg(duration),0) from fisical_file where file_season_file_id_file = 1;
 
 
 
 
 insert into fisical_file(name_fisical_file,size_fisical_file,duration,file_season_file_id_file,file_season_season_id_season)
-value("Iron Man cap 2.mkv",900, "180 minutos",1,1);
+value("Iron Man.mkv",900, 126,1,1);
+
+select * from second_name;
+
+
+select description,second_names from second_name 
+where file_season_file_id_file = 1;
+
+select description,second_names from second_name 
+                   where file_season_file_id_file =1;
+
+
+insert into second_name(description, second_names, file_season_file_id_file, file_season_season_id_season)
+value("Titulo Original","Iron Man",1,1);
+
+insert into second_name(description, second_names, file_season_file_id_file, file_season_season_id_season)
+value("Titulo Latino","El hombre de hierro",1,1);
 
 
 insert into fisical_file(name_fisical_file,size_fisical_file,duration,file_season_file_id_file,file_season_season_id_season)
-value("Iron Man cap 3.mkv",1253, "180 minutos",1,1);
+value("Iron Man cap 2.mkv",1253, 48,1,1);
 
 insert into file_season(file_id_file, season_id_season,name,description,release_date,path,cover_page)
 values(3,1,"Iron Man 3",

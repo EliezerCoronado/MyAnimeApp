@@ -104,6 +104,20 @@ router.get('/movie/:id_movie', function (req, res, next) {
       rowsC[i]['inf'] = r.fisical_file;
     }
 
+    for (var i = 0; i < rowsC.length; i++) {
+
+      var r = await get_second_name(rowsC[i].file_id_file)
+      rowsC[i]['second_names'] = r.second_name;
+    
+    }
+
+    for (var i = 0; i < rowsC.length; i++) {
+
+      var r = await get_pictures(rowsC[i].file_id_file)
+      rowsC[i]['pictures'] = r.picture;
+    
+    }
+
     res.status(200).json({ data: rowsC })
 
   });
@@ -186,7 +200,45 @@ let get_fisical_file = function (id_file) {
   })
 }
 
+let get_second_name = function (id_file) {
+  return new Promise((resolve, reject) => {
+    const query = `select description,second_names from second_name 
+                   where file_season_file_id_file =${id_file};`
 
+    
+    conn.query(query, (err, rows, fileds) => {
+      if (err) {
+        //res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
+        resolve({ second_name: [] })
+      }
+      //res.status(200).json({ data: rows })
+      resolve({ second_name: rows })
+      //rowsC[i]['menus'] = rows
+
+    })
+  })
+}
+
+
+
+let get_pictures = function (id_file) {
+  return new Promise((resolve, reject) => {
+    const query = `select path_picture from picture 
+                   where file_season_file_id_file = ${id_file};`
+
+    
+    conn.query(query, (err, rows, fileds) => {
+      if (err) {
+        //res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
+        resolve({ picture: [] })
+      }
+      //res.status(200).json({ data: rows })
+      resolve({ picture: rows })
+      //rowsC[i]['menus'] = rows
+
+    })
+  })
+}
 
 
 

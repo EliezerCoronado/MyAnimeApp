@@ -10,8 +10,11 @@
                 <img src="{{movie.cover_page}}" alt="">
             </figure>
             <div class="vertical">
-                <h5>Titulo Original: <b>{{movie.name}}</b></h5>
-                <h5>Otro titulo: <b>El hombre de acero</b></h5>
+                    
+                <h5 *ngFor="let item of movie.second_names">
+                    {{item.description}}: <b>{{item.second_names}}</b>
+                </h5>
+                
                 <h5>Fecha de estreno: {{movie.release_date | date:'longDate'}}</h5>
                 <div class="audio">
                     <h5>Idioma:</h5>
@@ -32,9 +35,7 @@
                 <h5><b>Sinopsis</b></h5>
                 <div class="centrado">
                     <h5>{{movie.description}}</h5>
-                </div>
-             
-                
+                </div>  
             </div>
     
         </div>
@@ -43,8 +44,8 @@
             <h1>Trailer</h1>
             <iframe width="700" height="415" [src]='getUrl()' title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <h1>Capturas</h1>
-            <figure>
-                <img src="../../../assets/img/khe.png" alt="">
+            <figure *ngFor="let item of movie.pictures">
+                <img src="{{item.path_picture}}" alt="">
             </figure>
         </div>
 
