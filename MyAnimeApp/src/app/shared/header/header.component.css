@@ -15,17 +15,27 @@ nav a {
     font-size: 30px;
 }
 
+.menu{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:left;
+}
+
+
+
 nav img {
     background-color: white;
     width: 400px;
     height: 70px;
     margin-left: 30px;
+    border:2px solid white;
 
 }
 
-nav ul {
+nav .menu ul {
     float: right;
-    margin-right: 400px;
+    margin-left: 50px;
 }
 
 nav ul li {
@@ -45,59 +55,36 @@ nav ul li a:hover {
     border-bottom:2px solid white;
    }
 
-.text {
+  nav .menu ul li input{
 
-  border-radius: 100px;
-  background-size: 25px 50px;
-
-}
-nav ul li input{
-
-  height: 50px;
-  border-radius: 30px;
-  padding: 10px;
-}
-
-  nav ul li .searchbar{
-  margin-bottom: auto;
-  margin-top: auto;
   height: 60px;
-  background-color: #e00101;
-  border-radius: 30px;
   padding: 10px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-right: 2px solid white;
+  outline: none;
+}  
+
+  nav .menu ul li button:hover{
+    cursor: pointer;
   }
 
-  .search_input{
-  color: white;
-  border: 0;
-  outline: 0;
-  background: none;
-  width: 0;
-  caret-color:transparent;
-  line-height: 40px;
-  transition: width 0.4s linear;
-  }
-
-  .searchbar:hover > .search_input{
-  padding: 0 10px;
-  width: 450px;
-  caret-color:red;
-  transition: width 0.4s linear;
-  }
-
-  .searchbar:hover > .search_icon{
-  background: white;
-  color: #e74c3c;
-  }
-
-  .search_icon{
-  height: 40px;
-  width: 40px;
-  float: right;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  color:white;
-  text-decoration:none;
-  }
+  
+nav .menu ul li .search_icon{
+    margin-top: 10px;
+    height: 60px;
+    width: 60px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    color:white;
+    background-color: white;
+    margin-left: 0px;
+    padding: 10px;
+    border-left: 2px solid white;
+    outline: none;
+}
+  
