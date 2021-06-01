@@ -129,6 +129,38 @@ router.get('/movie/:id_movie', function (req, res, next) {
 
 
 
+router.get('/get-lists/:type', function (req, res, next) {
+  var {
+    type,
+  } = req.params;
+  const query = `Select file_id_file,name,cover_page from file_season, file, type 
+                 where file_id_file=id_file
+                 and type_id_type=id_type
+                 and name_type ='${type}';`
+    conn.query(query, (err, rows, fileds) => {
+      
+      if(err){
+        res.status(500).json({ message: "Hubo un error que no pudo controlarse"});
+      }
+
+      if(rows.length==0){
+        res.status(404).json({ message: "Producto no encontrado"});
+      }
+
+
+      res.status(200).json({data: rows})
+    })
+});
+
+
+
+
+
+
+
+
+
+
 let get_languages = function (id_file) {
   return new Promise((resolve, reject) => {
     const query = `select l.language from file_season_language  fsl, language l
@@ -170,7 +202,10 @@ let get_category = function (id_file) {
   return new Promise((resolve, reject) => {
     const query = `select c.name_category from category_file r, category c, file f 
                    where category_id_category=id_category
+                   and f.id_file=r.file_id_serie
                    and f.id_file=${id_file};`
+
+
     conn.query(query, (err, rows, fileds) => {
       if (err) {
         //res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
@@ -186,7 +221,9 @@ let get_category = function (id_file) {
 let get_fisical_file = function (id_file) {
   return new Promise((resolve, reject) => {
     const query = `select Round( avg(size_fisical_file),0) as size,
-                          Round(avg(duration),0) as duration 
+                          Round(avg(duration),0) as duration,
+                          count(size_fisical_file) as chapters,
+                          sum(size_fisical_file) as total_size 
                           from fisical_file where file_season_file_id_file = ${id_file};`
     conn.query(query, (err, rows, fileds) => {
       if (err) {

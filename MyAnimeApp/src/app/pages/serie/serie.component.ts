@@ -1,26 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 import { CardServiceService } from 'src/app/service/card-service.service';
-import { filter } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: 'app-serie',
+  templateUrl: './serie.component.html',
+  styleUrls: ['./serie.component.css']
 })
-export class CardComponent implements OnInit {
-  
+export class SerieComponent implements OnInit {
 
   constructor(private service:CardServiceService,
-              private route: Router
-     ) {
+    private route: Router) { }
 
-
-
-  
-
-     
-      }
+  ngOnInit(): void {
+    this.category();
+  }
 
   cards=[];
 
@@ -28,22 +22,11 @@ export class CardComponent implements OnInit {
   
 
   category(){
-
-    this.service.getFileSeason().subscribe((data:any)=>{
+    this.service.getTypeList('Serie').subscribe((data:any)=>{
       console.log(data);
-      this.file_season=data.data
-
+     this.file_season=data.data
     })
   }
-
-  ngOnInit(): void {
-
-
-         this.category();
-
-
-  }
-
 
 
   type(type:string){
@@ -58,5 +41,8 @@ export class CardComponent implements OnInit {
     console.log(card);
     this.route.navigate(['/movie',card.file_id_file]);
   }
+
+
+
 
 }

@@ -35,5 +35,14 @@ export class CardServiceService {
 
   }
 
+  getTypeList(type:string){
+
+
+    
+    const url = URLFILTER + '/get-lists/'+type
+    return this.http.get(url);
+
+  }
+
 
 }

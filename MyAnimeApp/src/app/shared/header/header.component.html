@@ -3,37 +3,41 @@
 
 
         <div class="menu">
-        <img class="logo"  routerLink="/card" src="../../../assets/img/logo6.png" alt="">
+        <img class="logo"  routerLink="/home/all" src="../../../assets/img/logo6.png" alt="">
         
         <ul>
 
             <li>            
                 <input id='search' type="text" placeholder="Buscar...">
                 <button class="search_icon" type="submit"><i style="color: black;" class="fa fa-search"></i></button>
+             </li>
 
-
+             <li>
+                 <a routerLink="/home/all">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                </a>
              </li>
              
             <li>
-                <a><i class="fas fa-film"></i>
+                <a routerLink="/home/Pelicula" ><i class="fas fa-film"></i>
                     Peliculas
                 </a>
             </li>
             <li>
-                <a>
+                <a routerLink="/home/Serie">
                     <i class="fas fa-tape"></i>Series
                 </a>
             </li>
 
             <li>
-                <a>
+                <a routerLink="/home/Anime" > 
                     <i class="fab fa-asymmetrik"></i>
                     Anime
                 </a>
             </li>
 
             <li>
-                <a>
+                <a routerLink="/home/Dorama" >
                     <i class="fab fa-dyalog"></i>
                     Doramas
                 </a>

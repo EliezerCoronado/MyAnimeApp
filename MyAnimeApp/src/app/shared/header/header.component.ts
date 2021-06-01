@@ -12,4 +12,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  type(type:string){
+    console.log(type);
+  }
+
 }

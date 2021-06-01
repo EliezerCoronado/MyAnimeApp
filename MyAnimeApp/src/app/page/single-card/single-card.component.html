@@ -25,8 +25,12 @@
                 <h5>Categoria: {{categories}}</h5>
                 <h5>Calidad: {{movie.quality}}</h5>
                 <h5>Formato: {{movie.format}}</h5>
-                <h5>Duracion: {{movie.inf[0].duration}} minutos</h5>
-                <h5>Tamaño: <b>{{movie.inf[0].size/1000|number : '1.2-2'}} GB</b></h5>
+                <h5 *ngIf="movie.name_season =='Pelicula'" >Duracion: {{movie.inf[0].duration}} minutos</h5>
+                <h5 *ngIf="movie.name_season !=='Pelicula'">Duracion: {{movie.inf[0].duration}} minutos aprox. por capitulo</h5>
+                <h5 *ngIf="movie.name_season =='Pelicula'">Tamaño: <b>{{movie.inf[0].size/1000|number : '1.2-2'}} GB</b></h5>
+                <h5 *ngIf="movie.name_season !=='Pelicula'">Tamaño: {{movie.inf[0].size/1000|number : '1.2-2'}} GB aprox. por capitulo</h5>
+                <h5 *ngIf="movie.name_season !=='Pelicula'">Tamaño Total: <b>{{movie.inf[0].total_size/1000|number : '1.2-2'}} GB</b></h5>
+                <h5 *ngIf="movie.name_season !=='Pelicula'">Total Capitulos: <b>{{movie.inf[0].chapters}} capitulos</b></h5>
                 <div class="horizontal">
                     <h5>Precio: </h5> 
                     <h5 style="color: green; margin-left:2px; font-weight: bold;">Q{{movie.price}}</h5>
@@ -47,6 +51,7 @@
             <figure *ngFor="let item of movie.pictures">
                 <img src="{{item.path_picture}}" alt="">
             </figure>
+            
         </div>
 
     </div>

@@ -1,0 +1,29 @@
+<div class="paginas">
+    <div class="filter">
+        <h5>&nbsp;&nbsp;Genero:Todos <i class="fas fa-angle-down" style="color: blue;"></i>&nbsp;&nbsp; </h5>
+        <h5>&nbsp;&nbsp;Año:Todos <i class="fas fa-angle-down" style="color: blue;"></i>&nbsp;&nbsp;</h5>
+        <button class="btn btn-success ">Filtrar</button>
+    </div>
+        <div class="moviecard">
+ 
+
+
+            <div *ngFor="let card of file_season" class="box" (click)="singleCard(card)">
+               
+                <div class="titulo" n>
+                    <h5>{{card.name}}</h5>
+                </div>
+            
+                <div class="content">
+                    <figure>
+                        <img src="{{card.cover_page}}" alt="movie"   > 
+                    </figure>
+                    
+                    
+
+                </div>
+                
+            </div>
+
+    
+</div>

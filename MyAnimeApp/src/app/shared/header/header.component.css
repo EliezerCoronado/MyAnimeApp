@@ -29,7 +29,6 @@ nav img {
     width: 400px;
     height: 70px;
     margin-left: 30px;
-    border:2px solid white;
 
 }
 
@@ -55,7 +54,7 @@ nav ul li a:hover {
     border-bottom:2px solid white;
    }
 
-  nav .menu ul li input{
+nav .menu ul li input{
 
   height: 60px;
   padding: 10px;
@@ -65,9 +64,9 @@ nav ul li a:hover {
   outline: none;
 }  
 
-  nav .menu ul li button:hover{
+nav .menu ul li button:hover{
     cursor: pointer;
-  }
+}
 
   
 nav .menu ul li .search_icon{

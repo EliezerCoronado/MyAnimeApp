@@ -8,6 +8,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NewcardComponent } from './page/newcard/newcard.component';
 import { SingleCardComponent } from './page/single-card/single-card.component';
 import '@angular/common/locales/global/es';
+import { MovieComponent } from './pages/movie/movie.component';
+import { SerieComponent } from './pages/serie/serie.component';
+import { AnimeComponent } from './pages/anime/anime.component';
+import { DoramaComponent } from './pages/dorama/dorama.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import '@angular/common/locales/global/es';
     HeaderComponent,
     CardComponent,
     NewcardComponent,
-    SingleCardComponent
+    SingleCardComponent,
+    MovieComponent,
+    SerieComponent,
+    AnimeComponent,
+    DoramaComponent
   ],
   imports: [
     BrowserModule,
