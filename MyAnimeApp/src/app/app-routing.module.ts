@@ -6,6 +6,7 @@ import { SingleCardComponent } from './page/single-card/single-card.component';
 import { AnimeComponent } from './pages/anime/anime.component';
 import { DoramaComponent } from './pages/dorama/dorama.component';
 import { MovieComponent } from './pages/movie/movie.component';
+import { SearchComponent } from './pages/search/search.component';
 import { SerieComponent } from './pages/serie/serie.component';
 
 const routes: Routes = [
@@ -17,6 +18,8 @@ const routes: Routes = [
 {path:'home/Serie', component:SerieComponent},
 {path:'newcard', component:NewcardComponent},
 {path:'movie/:id', component:SingleCardComponent},
+{path:'search/:id', component:SearchComponent},
+
 
 { path:'', redirectTo: '/home/all', pathMatch: 'full' }
 

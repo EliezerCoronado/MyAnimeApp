@@ -136,7 +136,8 @@ router.get('/get-lists/:type', function (req, res, next) {
   const query = `Select file_id_file,name,cover_page from file_season, file, type 
                  where file_id_file=id_file
                  and type_id_type=id_type
-                 and name_type ='${type}';`
+                 and name_type ='${type}'
+                 ORDER BY file_id_file DESC;`
     conn.query(query, (err, rows, fileds) => {
       
       if(err){
@@ -151,6 +152,28 @@ router.get('/get-lists/:type', function (req, res, next) {
       res.status(200).json({data: rows})
     })
 });
+
+
+
+router.get('/search-menu/:nombre', function (req, res, next) {
+  var {
+    nombre,
+  } = req.params;
+  const query = `select fs.file_id_file,fs.cover_page,fs.name from 
+                file_season fs inner join second_name sn on fs.file_id_file = sn.file_season_file_id_file
+                where sn.second_names like '%${nombre}%'
+                and sn.description !='Titulo España';
+                `
+  conn.query(query, (err, rows, fileds) => {
+    if (err) {
+      console.log(err)
+      res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
+    }
+    res.status(200).json({ data: rows })
+  })
+});
+
+
 
 
 

@@ -12,6 +12,7 @@ import { MovieComponent } from './pages/movie/movie.component';
 import { SerieComponent } from './pages/serie/serie.component';
 import { AnimeComponent } from './pages/anime/anime.component';
 import { DoramaComponent } from './pages/dorama/dorama.component';
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { DoramaComponent } from './pages/dorama/dorama.component';
     MovieComponent,
     SerieComponent,
     AnimeComponent,
-    DoramaComponent
+    DoramaComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

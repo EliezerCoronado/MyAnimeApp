@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private route:Router) { }
+  search:any='';
   ngOnInit(): void {
   }
 
@@ -16,5 +17,13 @@ export class HeaderComponent implements OnInit {
   type(type:string){
     console.log(type);
   }
+
+  Search(){
+    let buscar:any = document.getElementById('search') || '';
+    this.search=buscar.value;
+    this.route.navigate(['/search',buscar.value])
+
+  }
+
 
 }

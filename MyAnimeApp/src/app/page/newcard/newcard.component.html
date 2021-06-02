@@ -15,6 +15,8 @@
             <select id ='category' formControlName='category' name='category' class="form-control" required>
               <option *ngFor="let item of Category"> {{ item.id_category }}-{{ item.name_category }}</option>
             </select>
+            <button class="btn btn-success">Agregar</button>
+            <button class="btn btn-info">Ver</button>
           </div>
 
         </form>
@@ -31,8 +33,20 @@
           
         
           <div class="form-group">
-            <h5 for="inputsm">Original Name</h5>
+            <h5 for="inputsm">Title Description</h5>
+            <select id ='category' formControlName='category' name='category' class="form-control" required>
+              <option>Titulo Original</option>
+              <option>Titulo Latino</option>
+              <option>Titulo Ingles</option>  
+              <option>Titulo España</option>
+            </select>
+         </div>
+
+          <div class="form-group">
+            <h5 for="inputsm">Title Name</h5>
             <input class="form-control input-sm" id="original" formControlName="original" type="text" required>
+            <button class="btn btn-success">Agregar</button>
+            <button class="btn btn-info">Ver</button>
           </div>
 
           <div class="form-group">

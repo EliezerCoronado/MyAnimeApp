@@ -44,5 +44,15 @@ export class CardServiceService {
 
   }
 
+  SearchMovie(search:string){
+    let str2 =search; 
+    let splitted2 = str2.split("/", 3);
+   // console.log(splitted2); 
+    const url = URLFILTER + '/search-menu/'+splitted2[2];
+    return this.http.get(url);
+
+  }
+  
+
 
 }

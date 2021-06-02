@@ -8,8 +8,8 @@
         <ul>
 
             <li>            
-                <input id='search' type="text" placeholder="Buscar...">
-                <button class="search_icon" type="submit"><i style="color: black;" class="fa fa-search"></i></button>
+                <input (keyup.enter)="Search()" id='search' type="text"  placeholder="Buscar...">
+                <button class="search_icon" (click)="Search();" type="submit"><i style="color: black;" class="fa fa-search"></i></button>
              </li>
 
              <li>

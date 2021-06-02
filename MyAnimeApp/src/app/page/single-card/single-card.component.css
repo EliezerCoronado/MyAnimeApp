@@ -1,9 +1,10 @@
 .movieSingle{
     position: absolute;
     width: 80%;
-    height: 100vh;
+    height: auto;
     background: white;
     border-radius: 10px;
+    border: 2px solid black;
 
 }
 
@@ -51,6 +52,7 @@
 
 .movieSingle .horizontal{
     width: 100%;
+
     display: flex;
     flex-direction: row;
     justify-content:left;

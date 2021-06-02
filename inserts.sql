@@ -3,81 +3,12 @@ select * from category;
 
 
 
-Insert into category (name_category) values ('Accion');
-Insert into category (name_category) values ('Aventura');
-Insert into category (name_category) values ('Biografia');
-Insert into category (name_category) values ('Comedia');
-Insert into category (name_category) values ('Documental');
-Insert into category (name_category) values ('Familiar');
-Insert into category (name_category) values ('Misterio');
-Insert into category (name_category) values ('Ciencia Ficcion');
-Insert into category (name_category) values ('Terror');
-Insert into category (name_category) values ('Suspenso');
-Insert into category (name_category) values ('Drama');
-Insert into category (name_category) values ('Animacion');
-Insert into category (name_category) values ('Romance');
-Insert into category (name_category) values ('Thriller');
-Insert into category (name_category) values ('Guerra');
-Insert into category (name_category) values ('Musical');
-Insert into category (name_category) values ('Fantasia');
-
-Insert into category (name_category) values ('Deportes');
-Insert into category (name_category) values ('Espacial');
-Insert into category (name_category) values ('Infantil');
-Insert into category (name_category) values ('Mecha');
-Insert into category (name_category) values ('Parodia');
-Insert into category (name_category) values ('Shounen');
-Insert into category (name_category) values ('Artes Marciales');
-Insert into category (name_category) values ('Josei');
-Insert into category (name_category) values ('Militar');
-Insert into category (name_category) values ('Policia');
-Insert into category (name_category) values ('Samurai');
-Insert into category (name_category) values ('Sobrenatural');
-Insert into category (name_category) values ('Vampiros');
-Insert into category (name_category) values ('Demencia');
-Insert into category (name_category) values ('Ecchi');
-Insert into category (name_category) values ('Harem');
-Insert into category (name_category) values ('Juegos');
-Insert into category (name_category) values ('Psicologico');
-Insert into category (name_category) values ('Seinen');
-Insert into category (name_category) values ('Superpoderes');
-Insert into category (name_category) values ('Yaoi');
-Insert into category (name_category) values ('Carreras');
-Insert into category (name_category) values ('Demonios');
-Insert into category (name_category) values ('Escolares');
-Insert into category (name_category) values ('Historico');
-Insert into category (name_category) values ('Magia');
-Insert into category (name_category) values ('Recuerdos de la Infancia');
-Insert into category (name_category) values ('Shoujo');
-Insert into category (name_category) values ('Yuri');
-
-Insert into type (name_type) values ('Pelicula');
-Insert into type (name_type) values ('Serie');
-Insert into type (name_type) values ('Dorama');
-Insert into type (name_type) values ('Anime');
-Insert into type (name_type) values ('Musica');
-Insert into type (name_type) values ('Video Musical');
-
-Insert into season (name_season) values ('Pelicula');
-Insert into season (name_season) values ('OVA');
-Insert into season (name_season) values ('Temporada 1');
-Insert into season (name_season) values ('Temporada 2');
-Insert into season (name_season) values ('Temporada 3');
-Insert into season (name_season) values ('Temporada 4');
-Insert into season (name_season) values ('Temporada 5');
-Insert into season (name_season) values ('Temporada 6');
-Insert into season (name_season) values ('Temporada 7');
-Insert into season (name_season) values ('Temporada 8');
-Insert into season (name_season) values ('Temporada 9');
-Insert into season (name_season) values ('Temporada 10');
 
 
 select * from file;
 select * from type;
 
-Insert into file(name_file, type_id_type) value ("Iron man 1", 1);
-Insert into file(name_file, type_id_type) value ("Iron man 2", 1);
-Insert into file(name_file, type_id_type) value ("Iron man 3", 1);
+
 
 Insert into file(name_file, type_id_type) value ("Capitan America 1", 1);
 Insert into file(name_file, type_id_type) value ("Capitan America 2", 1);
@@ -237,6 +168,12 @@ select * from second_name;
 select description,second_names from second_name 
 where file_season_file_id_file = 1;
 
+
+select path_picture from picture where file_season_file_id_file = 1;
+
+
+
+
 select description,second_names from second_name 
                    where file_season_file_id_file =1;
 
@@ -250,6 +187,10 @@ value("Titulo Latino","El hombre de hierro",1,1);
 
 insert into fisical_file(name_fisical_file,size_fisical_file,duration,file_season_file_id_file,file_season_season_id_season)
 value("Iron Man cap 2.mkv",1253, 48,1,1);
+
+
+
+
 
 insert into file_season(file_id_file, season_id_season,name,description,release_date,path,cover_page)
 values(3,1,"Iron Man 3",
@@ -365,7 +306,7 @@ select * FROM file_season ORDER BY file_id_file DESC LIMIT 16;
 
 SELECT * FROM file_season where release_date BETWEEN '2011-01-01' AND '2011-12-31';
 
-Select * from file_season, file, type 
+Select name from file_season, file, type 
 where file_id_file=id_file
 and type_id_type=id_type
 and name_type ='Pelicula';
