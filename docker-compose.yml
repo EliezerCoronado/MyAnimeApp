@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+
+  mysql:
+      build: database
+      #volumes:
+        #- data:/data
+      ports:
+        - "3306:3306"

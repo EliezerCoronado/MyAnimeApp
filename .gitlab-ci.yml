@@ -1,0 +1,26 @@
+stages:
+  - Build
+
+
+buildForUnitTest1:
+  stage: Build
+  script:       
+    - docker-compose up --build -d       
+  tags:
+    - ayd2p1
+  only:
+    refs:
+      - develop
+
+buildForUnitTest2:
+  stage: Build
+  script:   
+    - docker-compose  -f docker-compose-maquina2.yml up --build -d       
+  tags:
+    - ayd2p1
+  only:
+    refs:
+      - develop
+
+
+

@@ -1,0 +1,8 @@
+FROM mysql
+
+ADD database_script.sql /docker-entrypoint-initdb.d/
+
+ENV MYSQL_ROOT_PASSWORD password
+
+ENV ALTER USER 'root' IDENTIFIED WITH mysql_native_password BY 'isai1991';
+ENV flush privileges;
