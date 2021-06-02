@@ -15,6 +15,11 @@ export class CardServiceService {
 
   }
 
+  getYears(){
+    const url = URL + '/list/year';
+    return this.http.get(url);
+  }
+
 
   getFileSeason(){
     const url = URL + '/list/file_season';
@@ -53,6 +58,69 @@ export class CardServiceService {
 
   }
   
+
+  SearchMoviegender(search:string){
+
+    const url = URLFILTER + '/searchbygenre/'+search;
+    return this.http.get(url);
+
+  }
+
+  SearchMoviegenderbytype(search:string,id:string){
+
+    const url = URLFILTER + '/searchbygenrebytype/'+search+'/'+id;
+    return this.http.get(url);
+
+  }
+  
+
+  SearchMovieYear(search:string){
+
+    const url = URLFILTER + '/searchbyyear/'+search;
+    return this.http.get(url);
+
+  }
+
+  SearchMovieYearbytype(search:string, id:string){
+
+    const url = URLFILTER + '/searchbyyearbytype/'+search+'/'+id;
+    return this.http.get(url);
+
+  }
+
+  SearchMovieBoth(search:string, year:string){
+
+    const url = URLFILTER + '/searchboth/'+search+"/"+year;
+    return this.http.get(url);
+
+  }
+
+
+  SearchMovieBothbytype(search:string, year:string,id:string){
+
+    const url = URLFILTER + '/searchbothbytype/'+search+"/"+year+"/"+id;
+    return this.http.get(url);
+
+  }
+
+
+  getCategoriesbytype(id:string){
+
+    const url = URLFILTER + '/categorybytype/'+id;
+    return this.http.get(url);
+
+  }
+
+
+  getCategoriesbyyear(id:string){
+
+    const url = URLFILTER + '/categorybyyear/'+id;
+    return this.http.get(url);
+
+  }
+
+ 
+
 
 
 }

@@ -127,8 +127,6 @@ router.get('/movie/:id_movie', function (req, res, next) {
 });
 
 
-
-
 router.get('/get-lists/:type', function (req, res, next) {
   var {
     type,
@@ -174,12 +172,186 @@ router.get('/search-menu/:nombre', function (req, res, next) {
 });
 
 
+router.get('/searchbygenre/:nombre', function (req, res, next) {
+  var {
+    nombre,
+  } = req.params;
+  const query = `select fs.file_id_file, fs.name, fs.cover_page from file_season fs, category c,category_file cf
+                 where fs.file_id_file = cf.file_id_serie
+                 and cf.category_id_category = c.id_category
+                 and c.name_category = '${nombre}'`
+
+  conn.query(query, (err, rows, fileds) => {
+    if (err) {
+      res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
+    }
+    res.status(200).json({ data: rows })
+  })
+});
+
+router.get('/searchbygenre/:nombre', function (req, res, next) {
+  var {
+    nombre,
+  } = req.params;
+  const query = `select fs.file_id_file, fs.name, fs.cover_page from file_season fs, category c,category_file cf
+                 where fs.file_id_file = cf.file_id_serie
+                 and cf.category_id_category = c.id_category
+                 and c.name_category = '${nombre}'`
+
+  conn.query(query, (err, rows, fileds) => {
+    if (err) {
+      res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
+    }
+    res.status(200).json({ data: rows })
+  })
+});
 
 
 
 
+router.get('/searchbygenrebytype/:nombre/:id', function (req, res, next) {
+  var {
+    nombre,
+    id
+  } = req.params;
+  const query = `select fs.file_id_file, fs.name, fs.cover_page from file_season fs, category c,category_file cf, file f
+                 where fs.file_id_file = cf.file_id_serie
+                 and f.id_file = fs.file_id_file
+                 and cf.category_id_category = c.id_category
+                 and c.name_category = '${nombre}'
+                 and f.type_id_type = ${id}; `
+
+  conn.query(query, (err, rows, fileds) => {
+    if (err) {
+      res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
+    }
+    res.status(200).json({ data: rows })
+  })
+});
 
 
+
+
+router.get('/searchbyyear/:year', function (req, res, next) {
+  var {
+    year,
+  } = req.params;
+  const query = `select fs.file_id_file,fs.cover_page,fs.name from file_season fs, category c,category_file cf
+                 where fs.file_id_file = cf.file_id_serie
+                 and cf.category_id_category = c.id_category
+                 and Year(fs.release_date) =  ${year}`
+  conn.query(query, (err, rows, fileds) => {
+    if (err) {
+      console.log(err)
+      res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
+    }
+    res.status(200).json({ data: rows })
+  })
+});
+
+router.get('/searchbyyearbytype/:year/:id', function (req, res, next) {
+  var {
+    year,
+    id
+  } = req.params;
+  const query = `select fs.file_id_file, fs.name, fs.cover_page from file_season fs, category c,category_file cf, file f
+                 where fs.file_id_file = cf.file_id_serie
+                 and f.id_file = fs.file_id_file
+                 and cf.category_id_category = c.id_category
+                 and Year(fs.release_date) =${year}
+                 and f.type_id_type = ${id} ;
+                              `
+  conn.query(query, (err, rows, fileds) => {
+    if (err) {
+      console.log(err)
+      res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
+    }
+    res.status(200).json({ data: rows })
+  })
+});
+
+router.get('/searchboth/:nombre/:year', function (req, res, next) {
+  var {
+    nombre,
+    year
+  } = req.params;
+  const query = `select fs.file_id_file, fs.name, fs.cover_page from file_season fs, category c,category_file cf
+                 where fs.file_id_file = cf.file_id_serie
+                 and cf.category_id_category = c.id_category
+                 and c.name_category = '${nombre}'
+                 and Year(fs.release_date) =  ${year}`
+  conn.query(query, (err, rows, fileds) => {
+    if (err) {
+      console.log(err)
+      res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
+    }
+    res.status(200).json({ data: rows })
+  })
+});
+
+
+router.get('/searchbothbytype/:nombre/:year/:id', function (req, res, next) {
+  var {
+    nombre,
+    year,
+    id
+  } = req.params;
+  const query = `
+                 select fs.file_id_file, fs.name, fs.cover_page from file_season fs, category c,category_file cf, file f
+                 where fs.file_id_file = cf.file_id_serie
+                 and f.id_file = fs.file_id_file
+                 and cf.category_id_category = c.id_category
+                 and Year(fs.release_date) =  ${year}
+                 and c.name_category = '${nombre}'
+                 and f.type_id_type = ${id} ;`
+  conn.query(query, (err, rows, fileds) => {
+    if (err) {
+      console.log(err)
+      res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
+    }
+    res.status(200).json({ data: rows })
+  })
+});
+
+
+router.get('/categorybytype/:id', function (req, res, next) {
+  var {
+    id,
+  } = req.params;
+  const query = `select c.name_category from category c, category_file cf, file f
+                 where c.id_category = cf.category_id_category
+                 and f.id_file = cf.file_id_serie
+                 and f.type_id_type = ${id}
+                 group by c.name_category;`
+
+  conn.query(query, (err, rows, fileds) => {
+    if (err) {
+      res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
+    }
+    res.status(200).json({ data: rows })
+  })
+});
+
+
+
+
+router.get('/categorybyyear/:id', function (req, res, next) {
+  var {
+    id,
+  } = req.params;
+  const query = `select YEAR(fs.release_date) as r_year from file_season fs, file f
+                 where fs.file_id_file = f.id_file
+                 and f.type_id_type = ${id}
+                 group by r_year
+                 order by r_year asc ;`
+
+  conn.query(query, (err, rows, fileds) => {
+    if (err) {
+      res.status(500).json({ message: "Hubo un error que no pudo controlarse" });
+    }
+    res.status(200).json({ data: rows })
+  })
+});
 
 
 
@@ -299,6 +471,7 @@ let get_pictures = function (id_file) {
     })
   })
 }
+
 
 
 

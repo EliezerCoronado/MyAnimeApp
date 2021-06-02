@@ -60,9 +60,13 @@ nav .menu ul li input{
   padding: 10px;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
-  border-right: 2px solid white;
+  border: 2px solid white;
   outline: none;
 }  
+
+nav .menu ul li button{
+    border: 2px solid white;
+}
 
 nav .menu ul li button:hover{
     cursor: pointer;

@@ -1,9 +1,21 @@
 <div class="paginas">
-    <div  *ngIf="false" class="filter">
-        <h5>&nbsp;&nbsp;Genero:Todos <i class="fas fa-angle-down" style="color: blue;"></i>&nbsp;&nbsp; </h5>
-        <h5>&nbsp;&nbsp;Año:Todos <i class="fas fa-angle-down" style="color: blue;"></i>&nbsp;&nbsp;</h5>
-        <button class="btn btn-success ">Filtrar</button>
+
+    <div  class="filter">
+        <select id="genero" class="form-select" aria-label="Default select example">
+            <option selected>Genero:</option>
+            <option *ngFor="let item of categories; let i=index" value="{{i+1}}">{{item.name_category}}</option>
+          </select>
+        
+        <select id='year' class="form-select" aria-label="Default select example">
+            <option selected>Año:</option>
+            <option *ngFor="let item of years; let i=index" value="{{i+1}}">{{item.r_year}}</option>
+        </select>
+
+        <button (click)="filter()" class="btn btn-success ">Filtrar</button>
     </div>
+
+
+
         <div class="moviecard">
  
 

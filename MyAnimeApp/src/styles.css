@@ -37,13 +37,13 @@ body {
 
 .filter{
     display: flex;
-    width: 500px;
+    width: 450px;
     justify-content: space-between;
     margin-left: 280px;
     
 }
 
-.filter h5{
+.filter select{
     background:white;
     color: black;
     cursor: pointer;

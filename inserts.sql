@@ -52,6 +52,7 @@ where file_id_file = 11;
 
 
 
+
 select * from file_season;
 insert into file_season(file_id_file, season_id_season,name,description,release_date,path,cover_page,price,format,quality,trailer)
 values(1,1,"Iron Man","El millonario creador de armas Tony Stark debe luchar a su oscuro pasado después de padecer un terrible accidente con una de sus propias armas. Provisto con una armadura de última generación tecnológica, se convierte en «El hombre de hierro», un héroe que se dedica a combatir el mal en todo el mundo.",
@@ -60,12 +61,7 @@ values(1,1,"Iron Man","El millonario creador de armas Tony Stark debe luchar a s
 "https://www.youtube.com/embed/8ugaeA-nMTc");
 
 
-insert into file_season(file_id_file, season_id_season,name,description,release_date,path,cover_page,price,format,quality,trailer)
-values(2,1,"Iron Man 2",
-"El mundo ya sabe que el multimillonario Tony Stark es Iron Man, el superhéroe enmascarado. A pesar de las presiones del gobierno, la prensa y la opinión pública para que comparta su tecnología con el ejército, Tony es reacio a desvelar los secretos de la armadura de Iron Man, porque teme que esa información caiga en en manos de irresponsables. Con Pepper Potts y James Rhodey Rhodes a su lado, Tony forja alianzas nuevas y se enfrenta a nuevas y poderosas fuerzas.",
-"2010-04-26","Peliculas/Marvel/Iron Man/Iron Man 2",
-"../../../assets/img/Pelicula/IronMan/IronMan2/Iron_Man_2_Portada.jpg",2,"mkv","1080p",
-"https://www.youtube.com/embed/wKtcmiifycU");
+
 
 
 select * from fisical_file;
@@ -192,11 +188,7 @@ value("Iron Man cap 2.mkv",1253, 48,1,1);
 
 
 
-insert into file_season(file_id_file, season_id_season,name,description,release_date,path,cover_page)
-values(3,1,"Iron Man 3",
-"El descarado y brillante empresario Tony Stark/Iron Man se enfrentará a un enemigo cuyo poder no conoce límites. Cuando Stark comprende que su enemigo ha destruido su universo personal, se embarca en una angustiosa búsqueda para encontrar a los responsables. Este viaje pondrá a prueba su entereza una y otra vez. Acorralado, Stark tendrá que sobrevivir por sus propios medios, confiando en su ingenio y su instinto para proteger a las personas que quiere.",
-"2013-04-14","Peliculas/Marvel/Iron Man/Iron Man 3",
-"../../../assets/img/Pelicula/IronMan/IronMan3/Iron_Man_3_Portada.png");
+
 
 insert into file_season(file_id_file, season_id_season,name,description,release_date,path,cover_page)
 values(4,1,"Capitan America El Primer Vengador",
